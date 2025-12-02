@@ -1,0 +1,46 @@
+/* Universal Selector
+*{
+    border: 1px solid red;
+}
+*/
+
+/* Tag Selector */
+h1{
+    background-color: green;
+}
+
+/* Id Selector # */
+#a{
+    color: red;
+    background-color: yellow;
+}
+
+/* Class Selector . */
+.b{
+    /* color: blue; */
+    border: 10px solid;
+}
+
+/* Group Selector 
+h1, h2{
+    color: blue;
+}
+*/
+
+/* Descendent Selector */
+div p{
+    color: red;
+    background-color: yellow;
+}
+
+/* Child Selector */
+div > p{
+    color: white;
+    background-color: blue;
+}
+
+/* Atrribute Selector */
+button[type="submit"]{
+    color: red;
+    font-size: 32px;
+}

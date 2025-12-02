@@ -60,7 +60,7 @@ li:nth-child(2) {
     font-size: 24px;
 }
 
-li:nth-child(2):hover{
+li:hover{
     color: yellow;
     background-color: red;
     font-size: 38px;
@@ -88,4 +88,20 @@ li:nth-child(2):hover{
  #q::first-line{
     color: brown;
     font-size: 20px;
+ }
+
+ /* Box Model 
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+    */
+
+ h1:nth-child(1){
+    border: 3px solid red;
+    padding: 30px; /* Applies for All Sides */
+    /* padding: 10px 30px; Top+Bottom ,  Left+Right */
+    /* padding: 10px 20px 30px 40px; Top Right Bottom Left -- All Sides */
+    margin: 80px;
  }

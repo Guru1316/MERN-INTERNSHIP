@@ -103,12 +103,99 @@ arrowFunc3();
 
 // Functions With Parameters and Arguments
 const addTwoNumbers = (parameter1, parameter2) => {
-    console.log(parameter1, parameter2);
+    console.log(`The value of parameter 1 is ${parameter1}`);
+    console.log(`The value of parameter 2 is ${parameter2}`);
     let num1 = parameter1 || 10; 
     let num2 = parameter2 || 20;
     let sum = num1 + num2;
-    console.log("The sum of Two Numbers is: ",sum);
+    // console.log("The sum of Two Numbers is: ",sum); - One Type of Printing 
+    console.log(`The sum of Two Numbers is: ${sum}`);
 }
 addTwoNumbers(20, 50);
 addTwoNumbers(40, 50);
 addTwoNumbers(); // Output will be NaN - Not a Number if ( OR ) is not used
+addTwoNumbers();
+
+// typeof
+var x;
+console.log(typeof x);
+var x = 10;
+console.log(typeof x);
+var x = "String"
+console.log(typeof x);
+var x = true;
+console.log(typeof x);
+var x = 1.1;
+console.log(typeof x);
+
+let i = 10;
+let j = 2;
+console.log(i+j);
+console.log(i-j);
+console.log(i*j);
+console.log(i/j);
+
+let k = "10";
+let l = 2;
+console.log(k+l);
+console.log(k-l);
+console.log(k*l);
+console.log(k/l);
+
+let m = 10;
+let n = "2";
+console.log(m+n);
+console.log(m-n);
+console.log(m*n);
+console.log(m/n);
+
+let o = "10";
+let p = "2";
+console.log(o+p);
+console.log(o-p);
+console.log(o*p);
+console.log(o/p);
+
+
+// Equality Operator
+console.log(2 == "2");
+console.log(2 === "2");
+
+
+// Arrays
+let arr1 = [1, 2, 3, "ass"];
+let arr2 = [1, 2, 3, "ass"];
+console.log(arr1 == arr2);
+console.log(arr1 === arr2);
+console.log(arr1[0] == arr2[0]);
+console.log(arr1[0] === arr2[0]);
+console.log([] == []);
+
+
+// Loops
+
+// For Loop
+let arr4 = [1, 2, 3, 4, 5, 6];
+console.log(arr4);
+for(let i = 0; i < arr4.length; i++)
+{
+    arr4[i] = arr4[i] + i;
+}
+console.log(arr4);
+
+// For Each Loop
+let arr3 = [1, 2, 3, 4, 5, 6];
+console.log(arr3);
+arr3.forEach((element, index) => {
+    console.log(element, index);
+})
+
+// Map
+console.log(arr3);
+let aa = arr3.map((element, index) => {
+    return element + index;
+})
+console.log(aa);
+
+let aa1 = arr3.map((element, index) => element + index); // Only for single statements
+console.log(aa1);

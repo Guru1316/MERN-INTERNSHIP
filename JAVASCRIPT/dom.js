@@ -1,78 +1,122 @@
-// 1) Tag Selector
-let heading1 = document.getElementsByTagName("h1");
-// HTML Collection Array
-console.log(heading1[0]);
+// // 1) Tag Selector
+// let heading1 = document.getElementsByTagName("h1");
+// // HTML Collection Array
+// console.log(heading1[0]);
 
 
-// 2) Class Selector
-let cl = document.getElementsByClassName("para1");
-// HTML Collection Array
-console.log(cl[1]);
+// // 2) Class Selector
+// let cl = document.getElementsByClassName("para1");
+// // HTML Collection Array
+// console.log(cl[1]);
 
 
-// 3) ID Selector
-let idl = document.getElementById("b");
-// If more ids with same name it returns the first content with the respective id
-console.log(idl);
+// // 3) ID Selector
+// let idl = document.getElementById("b");
+// // If more ids with same name it returns the first content with the respective id
+// console.log(idl);
 
 
-// 4) Quert Selector ( Works with all three selectors )
-let qs = document.querySelector(".para1");
-// Return single value and first value
-console.log(qs);
+// // 4) Quert Selector ( Works with all three selectors )
+// let qs = document.querySelector(".para1");
+// // Return single value and first value
+// console.log(qs);
 
 
-// 5) QuerySelector All ( Works with all three selectors )
-let qsa = document.querySelectorAll("#b");
-// Return all the values of the given id or class or tag
-// Returns as node list
-console.log(qsa[1]);
+// // 5) QuerySelector All ( Works with all three selectors )
+// let qsa = document.querySelectorAll("#b");
+// // Return all the values of the given id or class or tag
+// // Returns as node list
+// console.log(qsa[1]);
 
 
-// Read and Write Operations
-let head = document.querySelector("p");
-// Read Operation
-console.log(head.textContent);
-// Write Operation
-head.textContent = "This is the new paragraph content";
+// // Read and Write Operations
+// let head = document.querySelector("p");
+// // Read Operation
+// console.log(head.textContent);
+// // Write Operation
+// head.textContent = "This is the new paragraph content";
 
-let div = document.querySelector("div");
-div.innerHTML = "<p>Hello from Div Para</p>";
-console.log(div.innerHTML);
-console.log(div.textContent);
-
-
-// add/remove/toggle class
-let x = document.querySelector("h1");
-console.log(x);
-// Adds Class
-x.classList.add("color");
-// Removes Class
-x.classList.remove("border");
-// Toggles Class If Added then it will remove else it will add it
-x.classList.toggle("background");
+// let div = document.querySelector("div");
+// div.innerHTML = "<p>Hello from Div Para</p>";
+// console.log(div.innerHTML);
+// console.log(div.textContent);
 
 
-// Styling
-let p = document.querySelector("p");
-p.style.color = "white";
-p.style.backgroundColor = "green";
+// // add/remove/toggle class
+// let x = document.querySelector("h1");
+// console.log(x);
+// // Adds Class
+// x.classList.add("color");
+// // Removes Class
+// x.classList.remove("border");
+// // Toggles Class If Added then it will remove else it will add it
+// x.classList.toggle("background");
 
 
-// Creating Element
-let ul = document.createElement("ul");
-let lii = document.createElement("li");
-let lii1 = document.createElement("li");
-lii.textContent = "Item 1";
-lii1.textContent = "Item 2";
-ul.appendChild(lii); 
-ul.appendChild(lii1); 
-document.body.appendChild(ul);
+// // Styling
+// let p = document.querySelector("p");
+// p.style.color = "white";
+// p.style.backgroundColor = "green";
 
-let arr = ["Apple", "Banana", "Mango"]; // Send those items in array to list using for each loop
-arr.forEach((element) => 
-{
-    let lo = document.createElement("li");
-    lo.textContent = element;
-    ul.appendChild(lo);
-})
+
+// // Creating Element
+// let ul = document.createElement("ul");
+// let lii = document.createElement("li");
+// let lii1 = document.createElement("li");
+// lii.textContent = "Item 1";
+// lii1.textContent = "Item 2";
+// ul.appendChild(lii); 
+// ul.appendChild(lii1); 
+// document.body.appendChild(ul);
+
+// let arr = ["Apple", "Banana", "Mango"]; // Send those items in array to list using for each loop
+// arr.forEach((element) => 
+// {
+//     let lo = document.createElement("li");
+//     lo.textContent = element;
+//     ul.appendChild(lo);
+// })
+
+// let form = document.querySelector("form");
+// form.addEventListener("submit", (e) =>  {
+//     e.preventDefault();
+//     let name = document.querySelectorAll("input")[0];
+//     let feedback = document.querySelectorAll("input")[1];
+//     if(name.value === "")
+//     {
+//         alert("Name field is required");
+//         return;
+//     }
+//     if(feedback.value.length < 5)
+//     {
+//         alert("Feedback must be at least 5 characters long");
+//         return;
+//     }
+//     let result = document.querySelector(".result");
+//     result.textContent=`Thank You ${name.value} for your feedback! and feedback is ${feedback.value}`;
+//     form.reset();
+// })
+
+let obj = {
+    "name" : "Guru",
+    "age" : 18
+}
+
+console.log(this);
+var funf = function(aa, jk) {
+    console.log(this.name, aa, jk);
+};
+// funf(300);
+
+
+// call apply bind
+// bind
+let boundedfn = funf.bind(obj, 500, "kl");
+boundedfn();
+//return a new function
+// call
+funf.call(obj, 400, 900);
+// it will immediately and the arguments we want to pass
+
+// apply
+funf.apply(obj, [600, 900]);

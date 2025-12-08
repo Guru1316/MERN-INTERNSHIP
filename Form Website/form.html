@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form Website</title>
+    <link rel="stylesheet" href="form.css">
+    <script src="form.js" async></script>
+</head>
+<body>
+    <div id="heading1">
+    <h2>Student Feedback Form</h2>
+    </div>
+    <br>
+    <br>
+    <div class="fl">
+    <div class="flexContainer">
+    <form id="feedbackForm">
+      <input type="text" id="name" placeholder="Enter your name" required />
+      <select id="course" required>
+        <option value="">Select Course</option>
+        <option>HTML & CSS</option>
+        <option>JavaScript</option>
+        <option>React JS</option>
+        <option>Node JS</option>
+      </select>
+      <label>Rating (1 to 5):</label>
+      <input type="range" id="rating" min="1" max="5" value="3" />
+      <textarea
+        id="feedback"
+        placeholder="Write your feedback..."
+        required
+      ></textarea>
+      <button type="submit">Submit Feedback</button>
+    </form>
+    </div>
+    </div>
+    <div id="output"></div>
+</body>
+</html>

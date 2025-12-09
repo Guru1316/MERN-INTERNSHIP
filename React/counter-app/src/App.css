@@ -1,0 +1,37 @@
+.App {
+  text-align: center;
+}
+.Container
+{
+  border: 1px solid white;
+  padding: 20px;
+  margin: 20px;
+}
+body{
+  background-color: black;
+  color: white;
+}
+.counter{
+  width: 100%;
+  border: 2px solid white;
+  margin: 20px auto;
+  padding: 30px;
+  border-radius: 8px;
+}
+button{
+  padding: 10px 24px;
+  margin-left: 8px;
+  font-size: 32px;
+  cursor: pointer;
+}
+.buttons{
+  margin: 30px;
+}
+.inc{
+  background-color: green;
+  color: white;
+}
+.dec{
+  background-color: red;
+  color: white;
+}

@@ -14,6 +14,8 @@ import Watchlist from './pages/WatchlistPage.jsx';
 import Episode from './pages/EpisodeDetailsPage.jsx';
 import Login from './pages/LoginPage.jsx';
 import Register from './pages/RegisterPage.jsx';
+import SeriesForm from './pages/SeriesForm.jsx';
+import ProtectedRoutes from './pages/ProtectedRoutes.jsx';
 
 const routerVariables = createBrowserRouter([{
   path:"/",
@@ -29,7 +31,11 @@ const routerVariables = createBrowserRouter([{
     },
     {
       path:"/diary",
-      element: <Diary></Diary>,
+      element: <ProtectedRoutes> <Diary></Diary> </ProtectedRoutes> ,
+    },
+    {
+      path:"/addSeries",
+      element: <ProtectedRoutes> <SeriesForm></SeriesForm> </ProtectedRoutes> ,
     },
     {
       path:"/login",
@@ -37,7 +43,7 @@ const routerVariables = createBrowserRouter([{
     },
     {
       path:"/profile",
-      element: <Profile></Profile>,
+      element: <ProtectedRoutes> <Profile></Profile> </ProtectedRoutes> ,
     },
     {
       path:"/register",
@@ -57,11 +63,11 @@ const routerVariables = createBrowserRouter([{
     },
     {
       path:"/settings",
-      element: <Settings></Settings>,
+      element: <ProtectedRoutes> <Settings></Settings> </ProtectedRoutes>,
     },
     {
       path:"/watchlist",
-      element: <Watchlist></Watchlist>,
+      element: <ProtectedRoutes> <Watchlist></Watchlist> </ProtectedRoutes>,
     },
     {
       path:"*",

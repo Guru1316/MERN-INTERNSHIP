@@ -118,5 +118,20 @@
       "origin_country": ["US"],
       "genres": ["Crime", "Drama"],
       "overview": "Six years before Saul Goodman meets Walter White. We meet him when the man who will become Saul Goodman is known as Jimmy McGill, a small-time lawyer searching for his destiny, and, more immediately, hustling to make ends meet."
-    }   
+    },
+    {
+      "id": 87108,
+      "name": "Chernobyl",
+      "poster_path": "/hlLXt2tOPT6RRnjiUmoxyG1LTFi.jpg", 
+      "backdrop_path": "/4VRHQOtKu6PFcItwbMYwKwvwzVd.jpg",
+      "vote_average": 8.7,
+      "vote_count": 11200,
+      "popularity": 85.3,
+      "first_air_date": "2019-05-06",
+      "original_language": "en",
+      "original_name": "Chernobyl",
+      "origin_country": ["US", "GB"],
+      "genres": ["Drama", "History"],
+      "overview": "The true story of one of the worst man-made catastrophes in history: the catastrophic nuclear accident at Chernobyl, and the brave men and women who sacrificed themselves to save Europe from unimaginable disaster."
+    }  
 ]

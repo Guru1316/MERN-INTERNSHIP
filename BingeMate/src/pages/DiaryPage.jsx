@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 import '../styles/home.css';
 import '../styles/series.css';
 import { useState } from 'react';
@@ -7,15 +8,25 @@ const Diary = () => {
 
     const navigate = useNavigate()
 
+    const activeUser = localStorage.getItem("activeUser");
+
     const [diary, setDiary] = useState(() => {
         return JSON.parse(localStorage.getItem("myDiary")) || [];
     });
 
     const imageBaseUrl = "https://image.tmdb.org/t/p/w500";
 
+    useEffect(() => {
+        if(activeUser){
+            const storedDiary = JSON.parse(localStorage.getItem(`myDiary_${activeUser}`)) || [];
+            // eslint-disable-next-line react-hooks/set-state-in-effect
+            setDiary(storedDiary);
+        }
+    }, [activeUser]);
+
     const clearDiary = () => {
         if(window.confirm("Are you sure you want to clear your diary?")) {
-            localStorage.removeItem("myDiary");
+            localStorage.removeItem(`myDiary_${activeUser}`);
             setDiary([]);
         }
     }

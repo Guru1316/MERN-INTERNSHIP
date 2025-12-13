@@ -23,7 +23,9 @@ const Series = () => {
 
     const addToWatchlist = () => 
     {
-        const existingWatchlist = JSON.parse(localStorage.getItem("myWatchlist")) || [];
+        const activeUser = localStorage.getItem("activeUser");
+        const key = `myWatchlist_${activeUser}`;
+        const existingWatchlist = JSON.parse(localStorage.getItem(key)) || [];
         const isPresent = existingWatchlist.find(item => item.id === seriesData.id);
         if (isPresent) 
         {
@@ -32,7 +34,7 @@ const Series = () => {
         else 
         {
             const newWatchlist = [...existingWatchlist, seriesData];
-            localStorage.setItem("myWatchlist", JSON.stringify(newWatchlist));
+            localStorage.setItem(key, JSON.stringify(newWatchlist));
             alert("Added to Watchlist!");
         }
     };

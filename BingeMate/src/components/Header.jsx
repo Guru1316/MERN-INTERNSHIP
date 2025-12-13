@@ -31,13 +31,15 @@
 import '../App.css';
 import { NavLink, useNavigate } from 'react-router-dom';
 
-const Header = () => {
+const Header = ({ setActiveUser }) => {
     const navigate = useNavigate();
     const auth = localStorage.getItem("auth");
 
     const handleLogout = () => {
         localStorage.removeItem("auth");
         alert("Logged Out Successfully");
+        setActiveUser(null);
+        localStorage.removeItem("activeUser");
         navigate("/");
     }
 

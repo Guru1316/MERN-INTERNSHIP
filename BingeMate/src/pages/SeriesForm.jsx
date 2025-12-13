@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 const SeriesForm = () => {
     const { data, setData } = useOutletContext();
     const navigate = useNavigate();
+    const activeUser = localStorage.getItem("activeUser");
     const { register, handleSubmit } = useForm({
         defaultValues : {
             "name": "Stranger Things",
@@ -28,7 +29,7 @@ const SeriesForm = () => {
         fdata.genres = fdata.genres.split(",").map((e) => e.trim());
         const updatedList = [...data, fdata];
         setData(updatedList);
-        localStorage.setItem("mySeriesData", JSON.stringify(updatedList));
+        localStorage.setItem(`mySeriesData_${activeUser}`, JSON.stringify(updatedList));
         console.log(fdata);
         alert("Series Added Successfully");
         navigate("/home");

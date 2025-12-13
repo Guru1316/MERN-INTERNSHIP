@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import SeriesCard from '../components/SeriesCard';
 import '../styles/home.css'; 
 import { useNavigate } from 'react-router-dom';
@@ -7,13 +7,21 @@ const Watchlist = () => {
 
     const navigate = useNavigate();
 
-    const [watchlist, setWatchlist] = useState(() => {
-        return JSON.parse(localStorage.getItem("myWatchlist")) || [];
-    });
+    const activeUser = localStorage.getItem("activeUser");
+
+    const [watchlist, setWatchlist] = useState([]);
+
+    useEffect(() => {
+        if(activeUser) {
+            const storedList = JSON.parse(localStorage.getItem(`myWatchlist_${activeUser}`)) || [];
+            // eslint-disable-next-line react-hooks/set-state-in-effect
+            setWatchlist(storedList);
+        }
+    }, [activeUser]);
 
     const clearWatchlist = () => {
         if(window.confirm("Are you sure you want to clear your watchlist?")) {
-            localStorage.removeItem("myWatchlist");
+            localStorage.removeItem(`myWatchlist_${activeUser}`);
             setWatchlist([]);
         }
     }

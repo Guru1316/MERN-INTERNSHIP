@@ -6,9 +6,12 @@ import { useEffect, useState } from 'react';
 function App() {
   let [data, setData] = useState([]);
 
+  const [activeUser, setActiveUser] = useState(localStorage.getItem("activeUser"));
+
   useEffect(() => {
+    if (!activeUser) return;
     const fetchSeriesData = async() => {
-      const localData = localStorage.getItem("mySeriesData");
+      const localData = localStorage.getItem(`mySeriesData_${activeUser}`);
       if (localData) 
       {
         setData(JSON.parse(localData));
@@ -17,10 +20,10 @@ function App() {
       {
         try
         {
-          const response = await fetch("http://localhost:5173/SeriesData.json");
+          const response = await fetch("/SeriesData.json");
           const fetchData = await response.json();
           setData(fetchData);
-          localStorage.setItem("mySeriesData", JSON.stringify(fetchData));
+          localStorage.setItem(`mySeriesData_${activeUser}`, JSON.stringify(fetchData));
         }
         catch(err)
         {
@@ -28,12 +31,12 @@ function App() {
         }}
       }
     fetchSeriesData();
-  }, []);
+  }, [activeUser]);
 
   return (
     <div className='App'>
-      <Header></Header>
-      <Outlet context={{data, setData}}></Outlet>
+      <Header setActiveUser={setActiveUser}></Header>
+      <Outlet context={{data, setData, setActiveUser}}></Outlet>
     </div>
   )
 }

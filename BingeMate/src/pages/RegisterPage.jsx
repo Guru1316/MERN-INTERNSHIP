@@ -20,8 +20,17 @@ const Register = () => {
     const navigate = useNavigate();
     const handleRegister = (e) => {
         e.preventDefault();
-        const user = { email, password };
-        localStorage.setItem("user", JSON.stringify(user));
+        const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
+        const userExists = existingUsers.find(user => user.email === email);
+        if(userExists) {
+            alert("User already exists!");
+            navigate("/");
+            return;
+        }
+        const newUser = { email, password };
+        const updatedUsers = [...existingUsers, newUser];
+        
+        localStorage.setItem("users", JSON.stringify(updatedUsers));
         alert("Registration Successful! Please Login.");
         navigate("/");
     };

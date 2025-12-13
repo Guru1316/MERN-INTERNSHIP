@@ -25,8 +25,8 @@ const Reviews = () => {
     }
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-
+        e.preventDefault()
+        const activeUser = localStorage.getItem("activeUser");
         const diaryEntry = {
             id: Date.now(),
             seriesId: seriesData.id,
@@ -38,8 +38,8 @@ const Reviews = () => {
             watchedOn: watchDate
         };
 
-        const existingDiary = JSON.parse(localStorage.getItem("myDiary")) || [];
-        localStorage.setItem("myDiary",JSON.stringify([diaryEntry, ...existingDiary]));
+        const existingDiary = JSON.parse(localStorage.getItem(`myDiary_${activeUser}`)) || [];
+        localStorage.setItem(`myDiary_${activeUser}`,JSON.stringify([diaryEntry, ...existingDiary]));
         alert("Logged to Diary successfully!");
         navigate("/diary");
     };

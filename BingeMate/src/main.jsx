@@ -5,11 +5,9 @@ import App from './App.jsx'
 import {createBrowserRouter, RouterProvider} from 'react-router-dom';
 import Home from './pages/HomePage.jsx';
 import Diary from './pages/DiaryPage.jsx';
-import Profile from './pages/ProfilePage.jsx';
 import Reviews from './pages/ReviewsPage.jsx';
 import Season from './pages/SeasonDetailsPage.jsx';
 import Series from './pages/SeriesDetailsPage.jsx';
-import Settings from './pages/SettingsPage.jsx';
 import Watchlist from './pages/WatchlistPage.jsx';
 import Episode from './pages/EpisodeDetailsPage.jsx';
 import Login from './pages/LoginPage.jsx';
@@ -42,15 +40,11 @@ const routerVariables = createBrowserRouter([{
       element: <Login></Login>,
     },
     {
-      path:"/profile",
-      element: <ProtectedRoutes> <Profile></Profile> </ProtectedRoutes> ,
-    },
-    {
       path:"/register",
       element: <Register></Register>,
     },
     {
-      path:"/reviews",
+      path:"/reviews/:seriesId",
       element: <Reviews></Reviews>,
     },
     {
@@ -60,10 +54,6 @@ const routerVariables = createBrowserRouter([{
     {
       path:"/series/:seriesId",
       element: <Series></Series>,
-    },
-    {
-      path:"/settings",
-      element: <ProtectedRoutes> <Settings></Settings> </ProtectedRoutes>,
     },
     {
       path:"/watchlist",

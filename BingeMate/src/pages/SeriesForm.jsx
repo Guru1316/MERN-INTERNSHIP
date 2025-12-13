@@ -1,3 +1,4 @@
+import { useNavigate, useOutletContext } from 'react-router-dom';
 import '../styles/seriesForm.css';
 import { useForm } from 'react-hook-form';
 
@@ -17,7 +18,8 @@ const SeriesForm = () => {
     //   "genres": ["Sci-Fi & Fantasy", "Mystery", "Drama"],
     //   "overview": "When a young boy vanishes, a small town uncovers a mystery involving secret experiments, terrifying supernatural forces, and one strange little girl."
     // }
-
+    const { data, setData } = useOutletContext();
+    const navigate = useNavigate();
     const { register, handleSubmit, /*formState: { errors }*/ } = useForm({
         defaultValues : {
             "name": "Stranger Things",
@@ -39,8 +41,12 @@ const SeriesForm = () => {
         fdata.id = Date.now();
         fdata.origin_country = fdata.origin_country.split(",").map((e) => e.trim());
         fdata.genres = fdata.genres.split(",").map((e) => e.trim());
+        const updatedList = [...data, fdata];
+        setData(updatedList);
+        localStorage.setItem("mySeriesData", JSON.stringify(updatedList));
         console.log(fdata);
         alert("Series Added Successfully");
+        navigate("/");
     }
 
     return (

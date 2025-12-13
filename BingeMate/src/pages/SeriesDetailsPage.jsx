@@ -1,11 +1,12 @@
 import '../styles/series.css'
-import { useOutletContext, useParams } from 'react-router-dom';
+import { useNavigate, useOutletContext, useParams } from 'react-router-dom';
 
 const Series = () => {
     const { data } = useOutletContext();
     const { seriesId } = useParams();
     const imageBaseUrl = "https://image.tmdb.org/t/p/original";
     const imageBaseUrl1 = "https://image.tmdb.org/t/p/w500";
+    const navigate = useNavigate()
 
     let seriesData = data.find((ele) => {
         return (ele.id === Number(seriesId));
@@ -21,10 +22,27 @@ const Series = () => {
         )   
     }
 
+    const addToWatchlist = () => 
+    {
+        const existingWatchlist = JSON.parse(localStorage.getItem("myWatchlist")) || [];
+        const isPresent = existingWatchlist.find(item => item.id === seriesData.id);
+        if (isPresent) 
+        {
+            alert("Already in your Watchlist!");
+        } 
+        else 
+        {
+            const newWatchlist = [...existingWatchlist, seriesData];
+            localStorage.setItem("myWatchlist", JSON.stringify(newWatchlist));
+            alert("Added to Watchlist!");
+        }
+    };
+
     return (
         <div className="series">
             <div className='gridContainer'>
                 <div>
+                    <button onClick={() => navigate(-1)} className='back-btn'>{"<"}---- Back</button>
                     <img src={`${imageBaseUrl}${seriesData.backdrop_path}`} alt={`${seriesData.name}`} />
                 </div>
             </div>
@@ -55,7 +73,10 @@ const Series = () => {
                     <h2>Overview</h2>
                     <p>{seriesData.overview}</p>
                 </div>
-
+                <div className="action-buttons">
+                    <button onClick={addToWatchlist} className="btn watchlist-btn">+ Watchlist</button>
+                    <button className="btn log-btn" onClick={() => navigate(`/reviews/${seriesData.id}`)}>+ Log</button>
+                </div>
             </div>
         </div>
     )

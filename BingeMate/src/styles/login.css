@@ -39,3 +39,12 @@
 .loginButton:hover {
   background-color: #1e40af;
 }
+.register{
+  background-color: black;
+  color: white;
+  text-align: center;
+  margin-top: 2px;
+}
+.register:hover{
+  color: red
+}

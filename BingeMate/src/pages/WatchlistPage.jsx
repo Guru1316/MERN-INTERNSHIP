@@ -1,9 +1,38 @@
-import '../App.css'
+import { useState } from 'react';
+import SeriesCard from '../components/SeriesCard';
+import '../styles/home.css'; 
 
 const Watchlist = () => {
-    return(
-        <div className="text">
-            <h1>Watchlist Page</h1>
+    const [watchlist, setWatchlist] = useState(() => {
+        return JSON.parse(localStorage.getItem("myWatchlist")) || [];
+    });
+
+    const clearWatchlist = () => {
+        if(window.confirm("Are you sure you want to clear your watchlist?")) {
+            localStorage.removeItem("myWatchlist");
+            setWatchlist([]);
+        }
+    }
+
+    return (
+        <div className='home'>
+            <div className='title-flex'>
+                <h1 className='section-title'>My Watchlist</h1>
+                {watchlist.length > 0 && (<button onClick={clearWatchlist} className='clear-btn'>Clear All</button>)}
+            </div>
+            {watchlist.length > 0 ? (
+                <div className='series-grid'>
+                    {watchlist.map((series) => (
+                        <SeriesCard key={series.id} series={series} />
+                    ))}
+                </div>
+            ) : 
+            (
+                <div className='empty'>
+                    <h2>Your Watchlist is Empty</h2>
+                    <p>Go to a series page and click "+ Watchlist" to add items here.</p>
+                </div>
+            )}
         </div>
     )
 }

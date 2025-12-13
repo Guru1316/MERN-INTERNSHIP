@@ -39,3 +39,38 @@
 {
     text-align: center;
 }
+
+.clear-btn
+{
+    padding: 5px 15px;
+    border-radius: 20px;
+    border: 1px solid #555;
+    cursor: pointer;
+}
+
+.clear-btn:hover
+{
+    background-color: red;
+}
+
+.watchlist
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+}
+
+.title-flex
+{
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.empty
+{
+    text-align: center;
+    margin-top: 50px; 
+    color: #666;
+}

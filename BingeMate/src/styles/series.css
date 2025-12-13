@@ -75,3 +75,36 @@
 {
     line-height: 1.6;
 }
+
+.action-buttons
+{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.btn
+{
+    background-color: green;
+    color: white;
+    border: 2px solid grey;
+    border-radius: 12px;
+    padding: 10px;
+    width: 100px;
+}
+
+.btn:hover{
+    background-color: blue;
+    cursor: pointer;
+}
+
+.back-btn{
+    padding: 5px;
+    border-radius: 12px;
+}
+
+.back-btn:hover
+{
+    background-color: red;
+    cursor: pointer;
+}
